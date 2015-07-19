@@ -108,10 +108,10 @@ wsServer.on('request', function(request) {
     });
  
     // user disconnected
-    connection.on('close', function(connection) {
+    connection.on('close', function(t) {
         if (userName !== false && userColor !== false) {
             console.log((new Date()) + " Peer "
-                + connection.remoteAddress + " disconnected.");
+                + t.remoteAddress + " disconnected.");
             // remove user from the list of connected clients
             clients.splice(index, 1);
             // push back user's color to be reused by another user
